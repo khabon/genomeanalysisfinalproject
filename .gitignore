@@ -1,0 +1,6 @@
+*.gz
+*.fastq
+*.fastq.gz
+*.hamming
+*.hamming.idx
+

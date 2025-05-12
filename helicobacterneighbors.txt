@@ -1,0 +1,2 @@
+spadesoutgalaxy/scaffolds.fasta	neighbors/acinonychis.fasta	89.4921	431	1137
+spadesoutgalaxy/scaffolds.fasta	neighbors/cetorum.fasta	82.0794	393	1137

@@ -1,0 +1,63 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2577
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fswiss\fcharset0 Helvetica;\f2\fswiss\fcharset0 Helvetica-Oblique;
+}
+{\colortbl;\red255\green255\blue255;\red30\green40\blue49;\red239\green241\blue241;\red34\green45\blue53;
+\red242\green242\blue242;}
+{\*\expandedcolortbl;;\cssrgb\c15294\c20784\c25098;\cssrgb\c94902\c95686\c95686;\cssrgb\c17647\c23137\c27059;
+\cssrgb\c96078\c96078\c96078;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl200\partightenfactor0
+
+\f0\fs18 \cf2 \cb3 \expnd0\expndtw0\kerning0
+#Assemble genome using SpAdes Galaxy Version 3.15.5+galaxy 3 with default settings \
+\
+#Assemble genome using ABySS Galaxy version 2.3.10+ galaxy 0 with default setting except k=96\
+\
+
+\fs22 #Quality assessment of assembly using QUAST v5.3.0
+\fs18 \
+quast.py spadesoutgalaxy/scaffolds.fasta -o quastspades \
+quast.py abyssoutgalaxy/scaffolds.fasta -o quastabyss\
+\
+*will be using Spades output\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 #Pull rRNA sequences with barrnap version 0.9\
+\pard\pardeftab720\sl200\partightenfactor0
+
+\f0\fs18 \cf4 \cb5 \expnd0\expndtw0\kerning0
+barrnap --kingdom bac spadesoutgalaxy/scaffolds.fasta > rRNAsequences.gff\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+# use bedtools v2.31.1 to pull fasta sequences \
+\pard\pardeftab720\sl200\partightenfactor0
+
+\f0\fs18 \cf4 \cb5 \expnd0\expndtw0\kerning0
+bedtools getfasta -fi spadesoutgalaxy/scaffolds.fasta -bed rRNAsequences.gff -fo rRNAsequences.fasta\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+#use blastn to identify 16S rRNA sequence \
+closest match: 
+\f2\i Helicobacter pylori 
+\f1\i0 \
+\
+# use dfast ver. 1.3.6 for protein annotation \
+\pard\pardeftab720\sl200\partightenfactor0
+
+\f0\fs18 \cf4 \cb5 \expnd0\expndtw0\kerning0
+dfast --genome spadesoutgalaxy/scaffolds.fasta --out dfast_output\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+# average nucleotide identity with fastANI 1.34\
+\pard\pardeftab720\sl200\partightenfactor0
+
+\f0\fs18 \cf4 \cb5 \expnd0\expndtw0\kerning0
+fastANI -q spadesoutgalaxy/scaffolds.fasta --rl neighbors.txt -o helicobacterneighbors.txt\
+\
+}

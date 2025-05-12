@@ -1,0 +1,102 @@
+Command line: /Users/kimberlyhabon/miniconda3/envs/genomeanalysis/bin/spades.py	-1	/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_1.fastq.gz	-2	/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_2.fastq.gz	-o	/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/spadesout	
+
+System information:
+  SPAdes version: 4.1.0
+  Python version: 3.13.2
+  OS: macOS-11.1-x86_64-i386-64bit-Mach-O
+
+Output dir: /Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/spadesout
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Standard mode
+  For multi-cell/isolate data we recommend to use '--isolate' option; for single-cell MDA data use '--sc'; for metagenomic data use '--meta'; for RNA-Seq use '--rna'.
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_1.fastq.gz']
+      right reads: ['/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_2.fastq.gz']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will be compressed
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+  Assembly graph output will use GFA v1.2 format
+Other parameters:
+  Dir for temp files: /Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/spadesout/tmp
+  Threads: 16
+  Memory limit (in Gb): 250
+
+
+======= SPAdes pipeline started. Log can be found here: /Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/spadesout/spades.log
+
+/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_1.fastq.gz: max reads length: 150
+/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_2.fastq.gz: max reads length: 150
+
+Reads length: 150
+
+Default k-mer sizes were set to [21, 33, 55, 77] because estimated read length (150) is equal to or greater than 150
+
+===== Before start started. 
+
+
+===== Read error correction started. 
+
+
+===== Read error correction started. 
+
+
+== Running: /Users/kimberlyhabon/miniconda3/envs/genomeanalysis/bin/spades-hammer /Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/spadesout/corrected/configs/config.info
+
+  0:00:00.000     1M / 3M    INFO    General                 (main.cpp                  :  76)   Starting BayesHammer, built from N/A, git revision N/A
+  0:00:00.006     1M / 3M    INFO    General                 (main.cpp                  :  77)   Loading config from "/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/spadesout/corrected/configs/config.info"
+  0:00:00.011     1M / 3M    INFO    General                 (main.cpp                  :  79)   Maximum # of threads to use (adjusted due to OMP capabilities): 4
+  0:00:00.015     1M / 3M    INFO    General                 (memory_limit.cpp          :  55)   Memory limit set to 250 Gb
+  0:00:00.020     1M / 3M    INFO    General                 (main.cpp                  :  87)   Trying to determine PHRED offset
+  0:00:00.024     1M / 3M    INFO    General                 (main.cpp                  :  93)   Determined value is 33
+  0:00:00.029     1M / 3M    INFO    General                 (hammer_tools.cpp          :  40)   Hamming graph threshold tau=1, k=21, subkmer positions = [ 0 10 ]
+  0:00:00.034     1M / 3M    INFO    General                 (main.cpp                  : 114)   Size of aux. kmer data 24 bytes
+     === ITERATION 0 begins ===
+  0:00:00.040     1M / 3M    INFO    General                 (kmer_index_builder.hpp    : 258)   Splitting kmer instances into 16 files using 4 threads. This might take a while.
+  0:00:00.045     1M / 3M    INFO    General                 (file_limit.hpp            :  43)   Open file limit set to 2560
+  0:00:00.054     1M / 3M    INFO    General                 (kmer_splitter.hpp         :  94)   Memory available for splitting buffers: 20.8333 Gb
+  0:00:00.060     1M / 3M    INFO    General                 (kmer_splitter.hpp         : 102)   Using cell size of 4194304
+  0:00:00.067  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             :  98)   Processing "/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_1.fastq.gz"
+  0:00:14.540  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 720491 reads
+  0:00:25.592  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 1440078 reads
+  0:00:35.700  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 2168503 reads
+  0:00:46.604  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 2899336 reads
+  0:00:57.636  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 3631224 reads
+  0:01:09.401  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 4362968 reads
+  0:01:20.925  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 5092959 reads
+  0:01:21.943  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 5155543 reads
+  0:01:21.947  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             :  98)   Processing "/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_2.fastq.gz"
+  0:02:24.254  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 108)   Processed 8823713 reads
+  0:02:49.769  2305M / 2305M INFO   K-mer Splitting          (kmer_data.cpp             : 113)   Total 10311086 reads processed
+  0:02:49.936     1M / 14M   INFO    General                 (kmer_index_builder.hpp    : 264)   Starting k-mer counting.
+  0:03:03.529     1M / 36M   INFO    General                 (kmer_index_builder.hpp    : 275)   K-mer counting done. There are 202174268 kmers in total.
+  0:03:03.530     1M / 36M   INFO   K-mer Index Building     (kmer_index_builder.hpp    : 410)   Building perfect hash indices
+  0:03:43.400   145M / 265M  INFO   K-mer Index Building     (kmer_index_builder.hpp    : 446)   Index built. Total 202174268 kmers, 146034784 bytes occupied (5.77857 bits per kmer).
+  0:03:43.400   145M / 265M  INFO   K-mer Counting           (kmer_data.cpp             : 355)   Arranging kmers in hash map order
+mimalloc: warning: unable to allocate aligned OS memory directly, fall back to over-allocation (1623195648 bytes, address: 0x10f8cc000, alignment: 67108864, commit: 1)
+mimalloc: warning: unable to allocate aligned OS memory directly, fall back to over-allocation (1623195648 bytes, address: 0x170c00000, alignment: 67108864, commit: 1)
+  0:04:01.691  3233M / 3233M INFO    General                 (main.cpp                  : 149)   Clustering Hamming graph.
+  0:23:10.265  3233M / 3233M INFO    General                 (main.cpp                  : 156)   Extracting clusters:
+  0:23:10.266  3233M / 3233M INFO    General                 (concurrent_dsu.cpp        :  19)   Connecting to root
+  0:23:12.420  3233M / 3233M INFO    General                 (concurrent_dsu.cpp        :  35)   Calculating counts
+mimalloc: warning: unable to allocate aligned OS memory directly, fall back to over-allocation (2285895680 bytes, address: 0x1d4c00000, alignment: 67108864, commit: 1)
+  0:27:48.955  5409M / 5409M INFO    General                 (concurrent_dsu.cpp        :  64)   Writing down entries
+mimalloc: warning: unable to allocate aligned OS memory directly, fall back to over-allocation (1623195648 bytes, address: 0x260400000, alignment: 67108864, commit: 1)
+  0:29:21.333  3233M / 3233M INFO    General                 (main.cpp                  : 168)   Clustering done. Total clusters: 86438088
+  0:29:21.538  1689M / 1689M INFO   K-mer Counting           (kmer_data.cpp             : 372)   Collecting K-mer information, this takes a while.
+mimalloc: warning: unable to allocate aligned OS memory directly, fall back to over-allocation (4857004032 bytes, address: 0x170c00000, alignment: 67108864, commit: 1)
+  0:29:23.882  6317M / 6317M INFO   K-mer Counting           (kmer_data.cpp             : 378)   Processing "/Users/kimberlyhabon/Desktop/Genomeanalysisfinalproject/SRR31908146_1.fastq.gz"
